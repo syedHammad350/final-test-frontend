@@ -4,6 +4,6 @@ import { Navbar } from '../Component/Navbar'
 
 export const UserLoginRoutes = () => {
   const isauth=!!localStorage.getItem('token')
-  // console.log(isauth)
+ 
   return isauth ?  <> <Navbar/> <Outlet/></>:<Navigate to={'/login'}/>
 }
