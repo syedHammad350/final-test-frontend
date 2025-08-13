@@ -29,17 +29,18 @@ const navigate=useNavigate()
       let ImageUrl=''
      const imageForm=new FormData()
      imageForm.append('image',imageFile)
-     const response=await axios.post(`${import.meta.env.VITE_BASE_URL }/Image/upload`,imageForm)
+     const response=await axios.post(`${import.meta.env.VITE_BASE_URL }/image/upload`,imageForm)
     //  console.log(response);
       ImageUrl=response.data.imageUrl
 
      
     const res=await axios.post( `${import.meta.env.VITE_BASE_URL }/auth/signup`,{
-      name:name,
-      email:email,
-      password:password,
+     "name":name,
+      "email":email,
+      "password":password,
       profileImage:ImageUrl
-    })
+    }
+  )
     // console.log(res);
     if(res.status==201){
       console.log("signup successfully")
